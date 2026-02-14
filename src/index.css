@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mt2-gold: #FFD700;
+  --mt2-silver: #C0C0C0;
+  --mt2-bronze: #CD7F32;
+  --mt2-dark: #1a1a1a;
+  --mt2-panel: #2d2d2d;
+  --mt2-border: #444444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--mt2-dark);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--mt2-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mt2-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mt2-gold);
+}
+
+/* Card tier colors */
+.tier-s { color: var(--mt2-gold); }
+.tier-a { color: var(--mt2-silver); }
+.tier-b { color: var(--mt2-bronze); }
+.tier-c { color: #888888; }

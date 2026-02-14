@@ -1,0 +1,50 @@
+[package]
+name = "mt2-draft-assistant"
+version = "0.1.0"
+description = "Monster Train 2 Draft Assistant - Real-time draft recommendations"
+authors = ["MT2 Community"]
+edition = "2021"
+rust-version = "1.70"
+
+[lib]
+name = "mt2_draft_assistant_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.31", features = ["bundled", "chrono"] }
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "1.0"
+anyhow = "1.0"
+log = "0.4"
+env_logger = "0.11"
+dirs = "5.0"
+tokio = { version = "1", features = ["full"] }
+regex = "1.10"
+fuzzy-matcher = "0.3"
+image = "0.24"
+
+# OCR dependencies (optional)
+leptess = { version = "0.14", optional = true }
+screenshots = { version = "0.8", optional = true }
+
+[features]
+default = []
+ocr = ["dep:leptess", "dep:screenshots"]
+
+[dev-dependencies]
+tempfile = "3.10"
+mockall = "0.12"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = 3
+strip = true
